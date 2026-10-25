@@ -259,7 +259,7 @@ Make sure the following are installed:
 ### Clone Repository
 
 ```bash
-git clone https://github.com/shreyas-krishnan7/sharenet.git
+git clone https://github.com/TanveeerSingh/sharenet.git
 
 cd sharenet
 ```
