@@ -28,9 +28,12 @@ export default function AudioCallRoom() {
         log(`Requesting token for identity: ${identity}, room: ${roomId}`);
         setLoading(true);
 
-        const tokenRes = await fetch(
-          `https://sharenet-production.up.railway.app/twilio/token?identity=${encodeURIComponent(identity)}&room=${roomId}`
-        );
+       const BACKEND_URL =
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
+
+const tokenRes = await fetch(
+  `${BACKEND_URL}/twilio/token?identity=${encodeURIComponent(identity)}&room=${encodeURIComponent(roomId)}`
+);
 
         if (!tokenRes.ok) {
           throw new Error(`Token fetch failed: ${tokenRes.status}`);

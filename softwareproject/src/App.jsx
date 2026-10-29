@@ -13,7 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { io } from "socket.io-client";
 
 // ✅ Create ONE socket for the entire app
-const socket = io("https://sharenet-production.up.railway.app", {
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
+
+const socket = io(BACKEND_URL, {
   transports: ["websocket"],
 });
 

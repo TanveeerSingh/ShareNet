@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const BACKEND_URL = "https://sharenet-production.up.railway.app";
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({

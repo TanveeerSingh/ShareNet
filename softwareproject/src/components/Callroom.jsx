@@ -715,7 +715,8 @@ export default function CallRoom() {
         setLoading(true);
 
         // 1️⃣ Fetch Twilio token
-        const tokenUrl = `https://sharenet-production.up.railway.app/twilio/token?identity=${encodeURIComponent(identity)}&room=${encodeURIComponent(roomId)}`;
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5001";
+const tokenUrl = `${BACKEND_URL}/twilio/token?identity=${encodeURIComponent(identity)}&room=${encodeURIComponent(roomId)}`;
         log(`Token URL: ${tokenUrl}`);
         
         log("📡 Fetching token from backend...");
