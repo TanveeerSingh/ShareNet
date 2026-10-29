@@ -1,4 +1,14 @@
-🚀 ShareNet — Real-Time Communication & File Sharing Platform
+# 🚀 ShareNet — Real-Time Communication & File Sharing Platform
+
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-API-000000?logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb&logoColor=white)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-Real--Time-010101?logo=socket.io&logoColor=white)
+![Twilio](https://img.shields.io/badge/Twilio-Audio%20%26%20Video-F22F46?logo=twilio&logoColor=white)
+![Render](https://img.shields.io/badge/Render-Backend%20Hosting-46E3B7?logo=render&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-Frontend%20Hosting-black?logo=vercel&logoColor=white)
 
 ShareNet is a full-stack communication platform that brings user authentication, real-time communication, file sharing, and audio/video calling together in one application.
 
