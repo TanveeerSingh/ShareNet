@@ -19,11 +19,11 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://sharenet-nu.vercel.app",
       "https://sharenet-ashen.vercel.app",
       "http://localhost:5173",
-      // you can add more allowed origins here
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
