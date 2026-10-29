@@ -15,7 +15,6 @@ console.log("SID:", process.env.TWILIO_ACCOUNT_SID);
 
 const app = express();
 
-// allow your frontend and local dev
 app.use(
   cors({
     origin: [
@@ -24,9 +23,11 @@ app.use(
       "http://localhost:5173",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use("/api/users", userRoutes);
