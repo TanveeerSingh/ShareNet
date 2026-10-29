@@ -48,6 +48,33 @@ const io = new Server(server, {
 
 app.use("/twilio", twilioRoute);
 
+// --- JSON error handling (must be registered after all routes) ---
+// Controllers set a status code and throw; express-async-handler forwards
+// the error here. Without this, Express sends its default HTML error page
+// and the frontend cannot read the message, so every failure looks generic.
+app.use((req, res, next) => {
+  res.status(404);
+  next(new Error(`Not found - ${req.originalUrl}`));
+});
+
+app.use((err, req, res, next) => {
+  let statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
+  let message = err.message || "Server error";
+
+  // Mongoose validation failures are client errors, not server errors
+  if (err.name === "ValidationError" || err.name === "CastError") {
+    statusCode = 400;
+  }
+
+  // Never leak internal error details on server errors
+  if (statusCode >= 500) {
+    console.error(err);
+    message = "Server error. Please try again later.";
+  }
+
+  res.status(statusCode).json({ message });
+});
+
 
 // In-memory stores
 // map socketId -> userObj { id, name, email, socketId }

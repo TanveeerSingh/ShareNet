@@ -61,7 +61,12 @@ const Signup = () => {
       }, 1500);
 
     } catch (err) {
-      const message = err.response?.data?.message || 'Signup failed. Please try again.';
+      // Show the server's message when there is one; if the request never
+      // got a response, say so instead of blaming the signup itself.
+      const message = err.response?.data?.message
+        || (err.request
+          ? 'Could not reach the server. Please check your connection and try again.'
+          : 'Signup failed. Please try again.');
       toast.error(` ${message}`, { position: 'top-center' });
     }
   };

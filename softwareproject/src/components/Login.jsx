@@ -191,8 +191,12 @@ const Login = () => {
       // Redirect after 1.5 seconds
       setTimeout(() => navigate('/dashboard'), 1500);
     } catch (err) {
-      // Get message from backend or default
-      const message = err.response?.data?.message || 'Invalid email or password';
+      // Show the server's message when there is one; if the request never
+      // got a response, say so instead of incorrectly blaming the credentials.
+      const message = err.response?.data?.message
+        || (err.request
+          ? 'Could not reach the server. Please check your connection and try again.'
+          : 'Login failed. Please try again.');
       toast.error(` ${message}`, { position: 'top-center' });
     }
   };
